@@ -21,29 +21,23 @@ variable "branch_regex" {
   default     = "^(integration|certification|loadtesting)$"
 }
 
-variable "repos" {
-  description = "Lista de repositorios de microservicios a configurar"
+variable "target_type" {
+  description = "Modo de configuración: 'group' para todos los repos del grupo, 'project' para repos concretos"
+  type        = string
+  validation {
+    condition     = contains(["group", "project"], var.target_type)
+    error_message = "target_type debe ser 'group' o 'project'."
+  }
+}
+
+variable "group_path" {
+  description = "Path del grupo GitLab (ej: mi-grupo). Solo necesario si target_type = 'group'"
+  type        = string
+  default     = ""
+}
+
+variable "project_paths" {
+  description = "Lista de paths de proyectos con namespace (ej: mi-grupo/mi-repo). Solo necesario si target_type = 'project'"
   type        = list(string)
-  default = [
-    "microservicio1",
-    "microservicio2",
-    "microservicio3",
-    "microservicio4",
-    "microservicio5",
-    "microservicio6",
-    "microservicio7",
-    "microservicio8",
-    "microservicio9",
-    "microservicio10",
-    "microservicio11",
-    "microservicio12",
-    "microservicio13",
-    "microservicio14",
-    "microservicio15",
-    "microservicio16",
-    "microservicio17",
-    "microservicio18",
-    "microservicio19",
-    "microservicio20"
-  ]
+  default     = []
 }
