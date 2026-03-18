@@ -1,4 +1,4 @@
-variable "gitlab_token" {
+variable "TOKEN_SWFPRESUNISWFPRESCRI" {
   description = "Token de acceso privado de GitLab con permisos de API"
   type        = string
 }
