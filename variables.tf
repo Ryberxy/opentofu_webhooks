@@ -12,13 +12,13 @@ variable "gitlab_url" {
 variable "jenkins_url" {
   description = "URL del webhook de Jenkins"
   type        = string
-  default     = "https://jenkins.example.com/gitlab-webhook/"
+  default     = "https://20.8.203.204/gitlab-webhook/post"
 }
 
 variable "branch_regex" {
   description = "Expresión para filtrar ramas que disparan el webhook"
   type        = string
-  default     = "release/*"
+  default     = "^(integration|certification|loadtesting)$"
 }
 
 variable "repos" {
