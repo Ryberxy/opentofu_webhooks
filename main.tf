@@ -26,7 +26,7 @@ resource "gitlab_project_hook" "jenkins_hooks" {
   url     = var.jenkins_url
 
   push_events               = true
-  merge_requests_events     = false
+  merge_requests_events     = true
   enable_ssl_verification   = true
   push_events_branch_filter = var.branch_regex
 }

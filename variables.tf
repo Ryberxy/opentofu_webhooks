@@ -6,7 +6,7 @@ variable "gitlab_token" {
 variable "gitlab_url" {
   description = "URL base de GitLab API"
   type        = string
-  default     = "https://gitlab.example.com/api/v4"
+  default     = "https://umane.emeal.nttdata.com/api/v4"
 }
 
 variable "jenkins_url" {
